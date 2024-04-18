@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+## CryptoCompass
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview:
+CryptoCompass is a cutting-edge dashboard designed for cryptocurrency enthusiasts and investors who require a comprehensive yet straightforward tool for monitoring and analyzing digital currencies. This platform combines real-time data, interactive charts, and personalized watchlists to deliver a user-centric experience that empowers users to make informed investment decisions.
+
+### Key Features:
+- **Comparison Tool:** Compare two cryptocurrencies on various metrics to see how they stack up against each other.
+- **Watchlist:** Users can create personalized lists of their favorite cryptocurrencies to monitor their performance and receive tailored alerts.
+- **News Tab:** Stay updated with the latest news and developments in the cryptocurrency world directly through the dashboard.
+
+**Technology Stack:**
+- **Frontend:** Developed using React, a robust framework for building user interfaces, combined with Tailwind CSS for sleek, responsive design elements.
+- **Charting:** Utilized MUI Chart.js to render dynamic and interactive charts that help visualize data effectively.
+- **Animation:** Enhanced user experience with smooth and responsive animations powered by Framer.
+
+### Goal  
+The goal of CryptoCompass is to provide a reliable, intuitive, and real-time platform that helps users track their cryptocurrency investments with ease and precision. Whether you are a seasoned trader or new to the crypto market, CryptoCompass offers the tools you need to stay ahead in the fast-evolving cryptocurrency landscape.
 
 ## Available Scripts
 
