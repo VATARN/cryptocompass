@@ -7,49 +7,53 @@ import Loader from "../Components/loader";
 
 function Watchlist() {
   const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
 
 
   useEffect(() => {
-    const data = getCoins(setError)
-    if (data.length > 0) {
-      gotCoinData(data);
-    }
+    getData();
   }, []);
 
-  const gotCoinData = (data) => {
-    setCoins(data.filter((coin) => watchlist.includes(coin.id)));
-    setLoading(false);
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const data = await getCoins(setError);
+      setCoins(data.filter((coin) => watchlist.includes(coin.id)));
+    } catch (error) {
+      setError("Failed to fetch coins: " + error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
 
   return (
     <div>
       <Header />
-      {loading && error === '' && <Loader />}
       {error && <h1>{error}</h1>}
-      {watchlist?.length > 0 ? (
-        <TabsComponent coins={coins} />
-      ) : (
-        <div>
-          <h1 style={{ textAlign: "center" }}>
-            Sorry, No Items In The Watchlist.
-          </h1>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              margin: "2rem",
-            }}
-          >
-            <a href="/dashboard">
-              <Button text="Dashboard" />
-            </a>
+      {loading ? <Loader /> :
+        watchlist.length > 0 ? (
+          <TabsComponent coins={coins} setSearch={() => { console.log("tab clicked!") }} />
+        ) : (
+          <div>
+            <h1 style={{ textAlign: "center" }}>
+              Sorry, No Items In The Watchlist.
+            </h1>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                margin: "2rem",
+              }}
+            >
+              <a href="/dashboard">
+                <Button text="Dashboard" clickFn={() => { console.log("Dashboard clicked!") }} outlined={false} />
+              </a>
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 }

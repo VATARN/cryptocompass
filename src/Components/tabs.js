@@ -52,7 +52,7 @@ export default function TabsComponent({ coins, setSearch }) {
                   margin: "2rem",
                 }}
               >
-                <Button text="Clear Search" onClick={() => setSearch("")} />
+                <Button text="Clear Search" clickFn={() => setSearch("")} outlined={false} />
               </div>
             </div>
           )}
@@ -77,7 +77,7 @@ export default function TabsComponent({ coins, setSearch }) {
                   margin: "2rem",
                 }}
               >
-                <Button text="Clear Search" onClick={() => setSearch("")} />
+                <Button text="Clear Search" clickFn={() => setSearch("")} outlined={false} />
               </div>
             </div>
           )}

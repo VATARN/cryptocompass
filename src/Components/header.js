@@ -56,7 +56,7 @@ function Header() {
           <p className="link">Watchlist</p>
         </a>
         <a href="/dashboard">
-          <Button text={"dashboard"} />
+          <Button text={"dashboard"} clickFn={() => { console.log("Dashboard clicked!") }} outlined={false} />
         </a>
       </div>
       <div className="drawer-component">
