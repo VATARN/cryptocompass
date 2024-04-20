@@ -74,13 +74,13 @@ export const gettingDate = (number) => {
     return date.getDate() + "/" + (date.getMonth() + 1);
 };
 
-export const settingChartData = (setChartData, prices1, prices2) => {
+export const settingChartData = (setChartData, prices1, prices2, crypto1, crypto2) => {
     if (prices2) {
         setChartData({
             labels: prices1?.map((data) => gettingDate(data[0])),
             datasets: [
                 {
-                    label: "Crypto 1",
+                    label: crypto1,
                     data: prices1?.map((data) => data[1]),
                     borderWidth: 1,
                     fill: false,
@@ -88,17 +88,17 @@ export const settingChartData = (setChartData, prices1, prices2) => {
                     tension: 0.25,
                     borderColor: "#3a80e9",
                     pointRadius: 0,
-                    yAxisID: "crypto1",
+                    yAxisID: 'crypto1',
                 },
                 {
-                    label: "Crypto 2",
+                    label: crypto2,
                     data: prices2?.map((data) => data[1]),
                     borderWidth: 1,
                     fill: false,
                     tension: 0.25,
                     borderColor: "#61c96f",
                     pointRadius: 0,
-                    yAxisID: "crypto2",
+                    yAxisID: 'crypto2',
                 },
             ],
         });
@@ -114,7 +114,7 @@ export const settingChartData = (setChartData, prices1, prices2) => {
                     tension: 0.25,
                     borderColor: "#3a80e9",
                     pointRadius: 0,
-                    yAxisID: "crypto1",
+                    yAxisID: 'crypto1',
                 },
             ],
         });
@@ -122,15 +122,19 @@ export const settingChartData = (setChartData, prices1, prices2) => {
 };
 
 export const settingCoinObject = (data, setCoin) => {
-    setCoin({
-        id: data.id,
-        name: data.name,
-        symbol: data.symbol,
-        image: data.image.large,
-        desc: data.description.en,
-        price_change_percentage_24h: data.market_data.price_change_percentage_24h,
-        total_volume: data.market_data.total_volume.usd,
-        current_price: data.market_data.current_price.usd,
-        market_cap: data.market_data.market_cap.usd,
-    });
+    if (data) {
+        setCoin({
+            id: data.id,
+            name: data.name,
+            symbol: data.symbol,
+            image: data.image.large,
+            desc: data.description.en,
+            price_change_percentage_24h: data.market_data.price_change_percentage_24h,
+            total_volume: data.market_data.total_volume.usd,
+            current_price: data.market_data.current_price.usd,
+            market_cap: data.market_data.market_cap.usd,
+        });
+    } else {
+        setCoin({});
+    }
 };

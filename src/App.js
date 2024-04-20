@@ -6,6 +6,7 @@ import Compare from "./Pages/compare";
 import Dashboard from "./Pages/dashboard";
 import Home from "./Pages/home";
 import Watchlist from "./Pages/watchlist";
+import News from "./Pages/news";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/coin/:id" element={<Coin />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/watchlist" element={<Watchlist />} />
+            <Route path="/news" element={< News />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

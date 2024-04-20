@@ -19,3 +19,21 @@
     width: 100%;
   }
 }
+
+.news-image {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 20%;
+}
+
+.news-source {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.source-icon {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}

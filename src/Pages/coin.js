@@ -10,6 +10,7 @@ import Loader from "../Components/loader.js";
 import List from "../Components/list.js";
 import { getCoinData, getPrices } from "../API/cryptoAPI.js";
 import { settingChartData, settingCoinObject } from "../Utils.js";
+import { toast } from "react-toastify";
 
 function Coin() {
   const { id } = useParams();
@@ -26,10 +27,16 @@ function Coin() {
     }
   }, [id]);
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      setLoading(false);
+    }
+  }, [error]);
+
   const getData = async () => {
     setLoading(true);
     let coinData = await getCoinData(id, setError);
-    console.log("Coin DATA>>>>", coinData);
     settingCoinObject(coinData, setCoin);
     if (coinData) {
       const prices = await getPrices(id, days, priceType, setError);

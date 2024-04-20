@@ -8,6 +8,7 @@ import SelectCoins from "../Components/selectCrypto.js";
 import List from "../Components/list.js";
 import { getCoins, getCoinData, getPrices } from "../API/cryptoAPI.js";
 import { settingChartData, settingCoinObject } from "../Utils.js";
+import { toast } from "react-toastify";
 
 function Compare() {
   const [error, setError] = useState("");
@@ -31,6 +32,12 @@ function Compare() {
     getData();
   }, []);
 
+  useEffect(() => {
+    if (error !== "") {
+      toast.error(error);
+      setLoading(false);
+    }
+  }, [error]);
 
   const getData = async () => {
     setLoading(true);
@@ -45,7 +52,7 @@ function Compare() {
         // getPrices
         const prices1 = await getPrices(crypto1, days, priceType, setError);
         const prices2 = await getPrices(crypto2, days, priceType, setError);
-        settingChartData(setChartData, prices1, prices2);
+        settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
         setLoading(false);
       }
     }

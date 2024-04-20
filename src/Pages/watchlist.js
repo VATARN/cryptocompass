@@ -4,6 +4,7 @@ import Header from "../Components/header";
 import TabsComponent from "../Components/tabs";
 import { getCoins } from "../API/cryptoAPI";
 import Loader from "../Components/loader";
+import { toast } from "react-toastify";
 
 function Watchlist() {
   const [coins, setCoins] = useState([]);
@@ -15,6 +16,13 @@ function Watchlist() {
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    if (error !== "") {
+      toast.error(error);
+      setLoading(false);
+    }
+  }, [error]);
 
   const getData = async () => {
     setLoading(true);
@@ -32,7 +40,6 @@ function Watchlist() {
   return (
     <div>
       <Header />
-      {error && <h1>{error}</h1>}
       {loading ? <Loader /> :
         watchlist.length > 0 ? (
           <TabsComponent coins={coins} setSearch={() => { console.log("tab clicked!") }} />

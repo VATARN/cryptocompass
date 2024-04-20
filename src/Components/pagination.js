@@ -9,14 +9,14 @@ export default function PaginationControlled({ page, handlePageChange }) {
       <Pagination
         sx={{
           "& .MuiPaginationItem-text": {
-            color: "#fff !important",
+            color: "var(--blue) !important",
             border: "1px solid var(--grey)",
           },
           "& .MuiPaginationItem-text:hover": {
             backgroundColor: "transparent !important",
           },
           "& .Mui-selected  ": {
-            backgroundColor: "var(--blue)",
+            backgroundColor: "var(--white)",
             borderColor: "var(--blue)",
           },
           "& .MuiPaginationItem-ellipsis": {

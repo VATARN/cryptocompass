@@ -8,6 +8,7 @@ import PaginationComponent from "../Components/pagination";
 import TopButton from "../Components/topButton";
 import Footer from "../Components/footer";
 import { getCoins } from "../API/cryptoAPI";
+import { toast } from "react-toastify";
 
 function Dashboard() {
   const [coins, setCoins] = useState([]);
@@ -20,6 +21,13 @@ function Dashboard() {
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    if (error !== "") {
+      toast.error(error);
+      setLoading(false);
+    }
+  }, [error]);
 
   const getData = async () => {
     setLoading(true);
@@ -56,7 +64,6 @@ function Dashboard() {
   return (
     <>
       <Header />
-      {error && <h1>{error}</h1>}
       {loading ? (
         <Loader />
       ) : (
