@@ -1,9 +1,6 @@
 import React from "react";
 import "../CSS/footer.css";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import EmailIcon from "@mui/icons-material/Email";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import logo from "../Assets/logo.webp"
 
 function Footer() {
   function topFunction() {
@@ -16,17 +13,8 @@ function Footer() {
         CryptoCompass<span>.</span>
       </h2>
       <div className="social-links">
-        <a href="https://facebook.com">
-          <FacebookIcon className="social-link" />
-        </a>
-        <a href="mailto:arnavvats.av7@gmail.com">
-          <EmailIcon className="social-link" />
-        </a>
-        <a href="https://www.twitter.com">
-          <TwitterIcon className="social-link" />
-        </a>
-        <a href="https://www.instagram.com">
-          <InstagramIcon className="social-link" />
+        <a href="/home">
+          <img src={logo} alt="cryptocompass" className="social-link" />
         </a>
       </div>
     </div>

@@ -4,8 +4,20 @@ import TabPanel from "@mui/lab/TabPanel";
 import "../CSS/tabs.css";
 import "../CSS/grid.css";
 import { motion } from "framer-motion";
+import newsSource from "../Assets/newsSource.webp";
+import newsImg from "../Assets/news.webp"
+
 
 export default function NewsGrid({ news }) {
+
+    const descriptionLength = 150;
+
+    const formatDescription = (description) => {
+        if (description.length > descriptionLength) {
+            return `${description.substring(0, descriptionLength)}... Read more`;
+        }
+        return description;
+    };
 
     return (
         <TabContext value="grid">
@@ -22,16 +34,18 @@ export default function NewsGrid({ news }) {
                                     transition={{ duration: 0.5, delay: (i % 4) * 0.2 }}
                                 >
                                     <div className="img-flex">
-                                        <img src={article.image_url} alt={article.title} className="news-image" />
+                                        <img src={article.image_url && article.image_url.includes('http') ? article.image_url : newsImg}
+                                            alt={article.title || "News image"} className="news-image" />
                                     </div>
-                                    <p className="coin-name">
+                                    <p className="coin-symbol">
                                         {article.title}
                                     </p>
                                     <p className="coin-name">
-                                        {article.description}
+                                        {formatDescription(article.description)}
                                     </p>
                                     <div className="news-source">
-                                        <img src={article.source_icon} alt={article.source_id} className="source-icon" />
+                                        <img src={article.source_icon ? article.source_icon : newsSource}
+                                            alt={article.source_id || "Source"} className="source-icon" />
                                         {article.source_id}
                                     </div>
                                 </motion.div>

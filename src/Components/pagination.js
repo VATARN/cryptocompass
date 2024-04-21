@@ -3,7 +3,7 @@ import "../CSS/pagination.css";
 
 import Pagination from "@mui/material/Pagination";
 
-export default function PaginationControlled({ page, handlePageChange }) {
+export default function PaginationControlled({ page, handlePageChange, count }) {
   return (
     <div className="pagination-div">
       <Pagination
@@ -23,7 +23,7 @@ export default function PaginationControlled({ page, handlePageChange }) {
             border: "none",
           },
         }}
-        count={10}
+        count={count}
         page={page}
         onChange={handlePageChange}
       />

@@ -75,6 +75,7 @@ function Dashboard() {
           />
           {!search && (
             <PaginationComponent
+              count={10}
               page={page}
               handlePageChange={handlePageChange}
             />

@@ -34,8 +34,8 @@
 }
 
 .social-link {
-  color: var(--white);
-  font-size: 2rem !important;
+  height: 3rem;
+  margin-right: 2rem;
   transition: all 0.2s ease-in-out !important;
 }
 

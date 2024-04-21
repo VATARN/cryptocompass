@@ -10,7 +10,7 @@ const config = {
 
 export const getCoinData = async (id, setError) => {
     try {
-        const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/${id}`, config);
+        const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`, config);
         return response.data;
     } catch (error) {
         setError(error.message);
@@ -21,7 +21,7 @@ export const getCoinData = async (id, setError) => {
 
 export const getCoins = async (setError) => {
     try {
-        const response = await axios.get("https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false", config);
+        const response = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false", config);
         return response.data; // Return the data for use in your component
     } catch (err) {
         setError(err.message);
@@ -32,7 +32,7 @@ export const getCoins = async (setError) => {
 
 export const getPrices = async (id, days, priceType, setError) => {
     try {
-        const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`);
+        const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`);
         if (response.data) {
             switch (priceType) {
                 case "market_caps":

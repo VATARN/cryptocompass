@@ -75,12 +75,13 @@ export const gettingDate = (number) => {
 };
 
 export const settingChartData = (setChartData, prices1, prices2, crypto1, crypto2) => {
+
     if (prices2) {
         setChartData({
             labels: prices1?.map((data) => gettingDate(data[0])),
             datasets: [
                 {
-                    label: crypto1,
+                    label: crypto1 ? crypto1 : "Crypto1",
                     data: prices1?.map((data) => data[1]),
                     borderWidth: 1,
                     fill: false,
@@ -91,7 +92,7 @@ export const settingChartData = (setChartData, prices1, prices2, crypto1, crypto
                     yAxisID: 'crypto1',
                 },
                 {
-                    label: crypto2,
+                    label: crypto2 ? crypto2 : "Crypto2",
                     data: prices2?.map((data) => data[1]),
                     borderWidth: 1,
                     fill: false,
