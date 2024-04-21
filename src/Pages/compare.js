@@ -70,7 +70,7 @@ function Compare() {
       // fetch prices again
       const prices1 = await getPrices(crypto1, days, priceType, setError);
       const prices2 = await getPrices(newCrypto2, days, priceType, setError);
-      settingChartData(setChartData, prices1, prices2);
+      settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
     } else {
       const newCrypto1 = e.target.value;
       // crypto1 is being changed
@@ -81,7 +81,7 @@ function Compare() {
       // fetch coin prices
       const prices1 = await getPrices(newCrypto1, days, priceType, setError);
       const prices2 = await getPrices(crypto2, days, priceType, setError);
-      settingChartData(setChartData, prices1, prices2);
+      settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
     }
     setLoading(false);
   };
@@ -92,7 +92,7 @@ function Compare() {
     setDays(newDays);
     const prices1 = await getPrices(crypto1, newDays, priceType, setError);
     const prices2 = await getPrices(crypto2, newDays, priceType, setError);
-    settingChartData(setChartData, prices1, prices2);
+    settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
     setLoading(false);
   };
 
@@ -102,7 +102,7 @@ function Compare() {
     setPriceType(newPriceType);
     const prices1 = await getPrices(crypto1, days, newPriceType, setError);
     const prices2 = await getPrices(crypto2, days, newPriceType, setError);
-    settingChartData(setChartData, prices1, prices2);
+    settingChartData(setChartData, prices1, prices2, crypto1, crypto2);
     setLoading(false);
   };
 
@@ -120,6 +120,7 @@ function Compare() {
             onCoinChange={onCoinChange}
             days={days}
             handleDaysChange={handleDaysChange}
+            error={error}
           />
           <div className="grey-wrapper">
             <List coin={coin1Data} />
