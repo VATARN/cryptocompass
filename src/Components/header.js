@@ -7,20 +7,22 @@ import { toast } from "react-toastify";
 import logo from "../Assets/logo.webp";
 
 function Header() {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark" ? true : false
-  );
-
+  const [darkMode, setDarkMode] = useState(true);
+  const localStorageVal = localStorage.getItem("theme");
   useEffect(() => {
-    if (localStorage.getItem("theme") === "dark") {
-      setDark();
+    if (localStorageVal) {
+      if (localStorageVal === "dark") {
+        setDark();
+      } else {
+        setLight();
+      }
     } else {
-      setLight();
+      setDark();
     }
   }, []);
 
   const changeMode = () => {
-    if (localStorage.getItem("theme") !== "dark") {
+    if (localStorageVal) {
       setDark();
     } else {
       setLight();

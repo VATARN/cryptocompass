@@ -2,7 +2,6 @@ import { MenuItem, Select } from "@mui/material";
 import React from "react";
 import SelectDays from "./selectDays";
 import "../CSS/selectCrypto.css";
-import Info from "./cryptoInfo";
 
 function SelectCoins({
   allCoins,
@@ -68,7 +67,6 @@ function SelectCoins({
         handleDaysChange={handleDaysChange}
         noPTag={true}
       />
-      {error !== '' ? <Info title={'Note:'} desc={"Please wait a while before making multiple comparisons to avoid exceeding API limits."} /> : null}
     </div>
   );
 }

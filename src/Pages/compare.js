@@ -109,6 +109,7 @@ function Compare() {
   return (
     <div>
       <Header />
+      {error !== '' ? <Info title={'Please Note:'} desc={"Wait a while before making multiple comparisons to avoid exceeding API limits, If error persists please try again in sometime!"} /> : null}
       {loading || !coin1Data?.id || !coin2Data?.id ? (
         <Loader />
       ) : (
