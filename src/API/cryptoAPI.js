@@ -4,7 +4,7 @@ const config = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        'x-cg-demo-api-key': 'CG-hZNq4hdWvVsnFh3qFuJUncm8'
+        'x-cg-demo-api-key': process.env.COIN_GECKO_API
     },
 };
 

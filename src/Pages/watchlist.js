@@ -10,7 +10,7 @@ function Watchlist() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+  const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 
 
   useEffect(() => {
