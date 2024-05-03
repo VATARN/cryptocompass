@@ -23,7 +23,7 @@ function Header() {
   }, []);
 
   const changeMode = () => {
-    if (localStorageVal) {
+    if (localStorageVal !== "dark") {
       setDark();
     } else {
       setLight();
