@@ -13,10 +13,14 @@ export default function NewsGrid({ news }) {
     const descriptionLength = 150;
 
     const formatDescription = (description) => {
-        if (description.length > descriptionLength) {
-            return `${description.substring(0, descriptionLength)}... Read more`;
+        if (description) {
+            if (description.length > descriptionLength) {
+                return `${description.substring(0, descriptionLength)}... Read more`;
+            }
+            return description;
+        } else {
+            return 'Get more details by clicking on the news card!';
         }
-        return description;
     };
 
     return (
